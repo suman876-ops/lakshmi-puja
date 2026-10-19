@@ -37,9 +37,24 @@ Everything except the video is embedded directly in `index.html`, so the page ha
 
 **শুভেচ্ছা (Blessings)** — a generator that builds a personalised wish card from a name and exports it as a PNG.
 
+**প্ৰশ্ন-উত্তৰ (FAQ)** — the questions people actually search for (when the puja falls, what the rules are, which mantra, what to offer), with the Kojagari Lakshmi Puja 2026 date.
+
 Plus a preloader, scroll progress bar, scroll-reveal animations, a blessing marquee, an alpana rosette turning behind the hero, a marigold garland, and a fully responsive layout.
 
 ---
+
+## Search & SEO
+
+The page is built to be found and understood by search engines:
+
+- A keyword-led `<title>` and meta description targeting লক্ষ্মী পূজা ২০২৬, কোজাগৰী লক্ষ্মী পূজা, পূজাৰ নিয়ম, মন্ত্ৰ and related queries.
+- `canonical` URL, `robots` directives, and Open Graph / Twitter Card tags so links unfurl properly when shared.
+- Schema.org structured data (JSON-LD): `WebSite`, `WebPage`, `ImageObject` and a `FAQPage` matching the visible FAQ section.
+- `robots.txt` and `sitemap.xml` at the root.
+- One `<h1>`, a clean `<h2>` hierarchy, and descriptive `alt` text on every image.
+- Assamese is declared throughout (`lang="as"`, `og:locale` `as_IN`), which is where this page is most likely to rank — Assamese-language competition is thin compared with Bengali or English.
+
+To get indexed: verify the site in [Google Search Console](https://search.google.com/search-console), submit `sitemap.xml`, then use *URL Inspection → Request indexing*. Indexing is not instant and ranking is never guaranteed — see the Search Console for what Google has actually crawled.
 
 ## Running it
 
