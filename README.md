@@ -2,9 +2,20 @@
 
 > শ্রীময় হোক সকলের জীবন
 
-A single-file, cinematic devotional website for **Lakshmi Puja** — built in Assamese, with interactive 3D graphics, a generative music engine, and a rendered short film. Everything (images, video, audio) is embedded in one HTML file, so it runs offline with no build step and no dependencies to install.
+A cinematic devotional website for **Lakshmi Puja** — built in Assamese, with interactive 3D graphics, a generative music engine, and a rendered short film.
 
 **Live site:** https://suman876-ops.github.io/lakshmi-puja/
+
+---
+
+## Repository layout
+
+```
+index.html              the whole site — HTML, CSS, JS and every image embedded
+media/puja-video.mp4    the 26-second film, with its ambient soundtrack
+```
+
+Everything except the video is embedded directly in `index.html`, so the page has no image requests to make. The video is served as a normal file so the page paints fast and the video streams.
 
 ---
 
@@ -18,7 +29,7 @@ A single-file, cinematic devotional website for **Lakshmi Puja** — built in As
 
 **পূজাৰ নিয়ম (Puja Vidhi)** — the eight steps of the ritual as a scroll-animated timeline.
 
-**শ্ৰী লক্ষ্মী মন্ত্ৰ (Mantras)** — four mantras (bija, dhyana, mangala, sampad) in Devanagari with transliteration and Assamese meaning; each can be heard.
+**শ্ৰী লক্ষ্মী মন্ত্ৰ (Mantras)** — four mantras (bija, dhyana, mangala, sampad) in Devanagari with transliteration and Assamese meaning; each one can be heard.
 
 **গ্যালাৰি (Gallery)** — a masonry gallery with a keyboard-navigable lightbox.
 
@@ -46,23 +57,22 @@ python3 -m http.server
 
 Then visit `http://localhost:8000`.
 
-To publish it yourself, drop `index.html` at the root of any static host. The filename is already `index.html` so it works as a site entry point as-is.
-
 ---
 
 ## Tech
 
 - Plain HTML, CSS and vanilla JavaScript — no framework, no bundler.
 - [Three.js](https://threejs.org/) r158 (loaded from a CDN) for the 3D mandala.
-- Web Audio API for all music and sound effects — every sound is synthesised at runtime, there are no audio files.
+- Web Audio API for all music and sound effects — every sound is synthesised at runtime; there are no audio files.
 - Google Fonts: Noto Serif Bengali, Noto Serif Devanagari, Cormorant Garamond, Jost.
-- The video was rendered offline with FFmpeg and the soundtrack synthesised with NumPy.
+- The film was rendered offline with FFmpeg, and its soundtrack synthesised with NumPy.
 
 ### Notes
 
 - Three.js and the fonts load from a CDN. Offline, the 3D section falls back to a CSS-animated mandala and the text falls back to a system serif — nothing breaks.
 - The page respects `prefers-reduced-motion`: the particle field, parallax and reveal animations are disabled for anyone who asks for reduced motion.
 - Audio only starts after a user gesture, as browsers require.
+- `index.html` can also be inlined into a single fully self-contained file by replacing the video `src` with a `data:video/mp4;base64,…` URI, for offline distribution.
 
 ---
 
